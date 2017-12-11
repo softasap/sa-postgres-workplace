@@ -1,0 +1,8 @@
+---
+# defaults file for sa-postgres-workplace
+
+role_dir: "{{role_path}}"
+
+option_install_python: true
+option_grcat_coloring: true
+option_pgcli: true

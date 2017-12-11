@@ -1,0 +1,12 @@
+---
+# tasks file for sa-postgres-workplace
+
+  - import_tasks: tasks_python.yml
+    when: option_python
+
+  - import_tasks: tasks_pgcli.yml
+    when: option_pgcli
+
+  - import_tasks: tasks_console_helper.yml
+    when: option_grcat_coloring
+
