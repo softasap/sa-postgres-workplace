@@ -1,32 +1,18 @@
-SA-POSTGRES
-===========
+SA-POSTGRES-WORKPLACE
+=====================
 
-[![Build Status](https://travis-ci.org/softasap/sa-postgres.svg?branch=master)](https://travis-ci.org/softasap/sa-postgres)
+[![Build Status](https://travis-ci.org/softasap/sa-postgres-workplace.svg?branch=master)](https://travis-ci.org/softasap/sa-postgres-workplace)
+
+You have possibility to color output with native psql tool with `option_grcat_coloring` or use more sophisticated tool pgcli with `option_pgcli`,
+but you would need python and pip on a host.
 
 Possible overrides:
 
 ```YAML
 
-  option_create_app_user: false
-
-  postgresql_version: 9.4
-
-  postgresql_listen_addresses: localhost  # * for any address
-
-  postgresql_port: 5432
-
-  # Set remotely to allow listening
-  #postgres_app_network: "192.168.0.1/32"
-  #postgres_app_network_regex: "192\.168\.0\.1\/32"
-
-  # Set remotely to allow listening
-  #postgres_dev_network: "192.168.0.1/32"
-  #postgres_dev_network_regex: "192\.168\.0\.1\/32"
-
-  db_host: localhost
-  db_user: app_user
-  db_password: app_password
-  db_name: app_database
+option_install_python: true
+option_grcat_coloring: true
+option_pgcli: true
 
 ```
 
@@ -38,7 +24,7 @@ Simple:
 
 
      - {
-         role: "sa-postgres"
+         role: "sa-postgres-workplace"
        }
 
 ```
@@ -50,87 +36,34 @@ Advanced:
 
 
      - {
-         role: "sa-postgres",
+         role: "sa-postgres-workplace",
+         option_install_python: true,
+         option_grcat_coloring: true,
+         option_pgcli: true
 
-         postgresql_listen_addresses: 127.0.0.1,
-
-         db_host: localhost,
-         db_user: app_user,
-         db_password: app_password,
-         db_name: app_database,         
-
-         postgres_app_network: "192.168.0.1/32",
-         postgres_app_network_regex: "192\.168\.0\.1\/32",
-
-
-         postgres_dev_network: "192.168.0.1/32",
-         postgres_dev_network_regex: "192\.168\.0\.1\/32"
 
        }
 
 ```
 
 
-# Misc hints
-
-If you ever wanted to connect remotely using user postgres, you need first to set password for it:
-
-```
-sudo -u postgres psql postgres
-
-# \password postgres
-
-Enter new password:
-```
-
-
-In psql usual commands:
-
-```
-
-\l show databases
-
-```
-
-Importing database from sql file
-
-Importing DB
-
-```
-psql -d demo_test -f demo.sql
-```
-
-Generate pgsql schema diagram with schemacrawler  http://sualeh.github.io/SchemaCrawler/
-
-```
-
-schemacrawler -server=postgresql -database=demo_test -user=postgres -password=postgres -infolevel=maximum -command=graph -outputformat=pdf -outputfile=database-diagram.pdf
-
-```
-
-Generate pgsql schema diagram portal with schemaspy http://schemaspy.sourceforge.net/
-
-```
-schemaspy -t pgsql -db demo_test -host localhost -port 5432 -s public -u postgres -p postgres  -o output
-```
-
 usage with ansible-galaxy workflow
 ----------------------------------
 
-If you installed the `sa-postgres` role using the command
+If you installed the `sa-postgres-workplace` role using the command
 
 
 `
-   ansible-galaxy install softasap.sa-ansible-ara
+   ansible-galaxy install softasap.sa-postgres-workoplace
 `
 
-the role will be available in the folder `library/softasap.sa-postgres`
+the role will be available in the folder `library/softasap.sa-postgres-workplace`
 Please adjust the path accordingly.
 
 ```YAML
 
      - {
-         role: "softasap.sa-postgres"
+         role: "softasap.sa-postgres-workplace"
        }
 
 ```
