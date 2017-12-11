@@ -2,7 +2,7 @@
 # tasks file for sa-postgres-workplace
 
   - import_tasks: tasks_python.yml
-    when: option_python
+    when: option_install_python
 
   - import_tasks: tasks_pgcli.yml
     when: option_pgcli
