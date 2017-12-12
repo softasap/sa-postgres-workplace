@@ -1,0 +1,4 @@
+---
+  - name: Install pgcli
+    pip: name=pgcli state=latest
+    become: yes
