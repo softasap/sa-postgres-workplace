@@ -4,6 +4,6 @@
   roles:
     - {
         role: "role_under_test",
+        option_install_psql: true,
         docker_test: true
       }
-

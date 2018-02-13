@@ -3,6 +3,9 @@
 
 role_dir: "{{role_path}}"
 
+postgresql_version: 9.6
+
+option_install_psql: false
 option_install_python: true
 option_grcat_coloring: true
 option_pgcli: true
