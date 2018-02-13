@@ -10,3 +10,5 @@
   - import_tasks: tasks_console_helper.yml
     when: option_grcat_coloring
 
+  - import_tasks: tasks_psql_client.yml
+    when: option_install_psql

@@ -10,6 +10,8 @@ Possible overrides:
 
 ```YAML
 
+option_install_psql: true  # install client tools
+postgresql_version: 9.6    # for postgres 9.6
 option_install_python: true
 option_grcat_coloring: true
 option_pgcli: true
@@ -37,6 +39,8 @@ Advanced:
 
      - {
          role: "sa-postgres-workplace",
+         option_install_psql: true,  # install client tools
+         postgresql_version: 9.6,    # for postgres 9.6
          option_install_python: true,
          option_grcat_coloring: true,
          option_pgcli: true
