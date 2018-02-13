@@ -17,6 +17,7 @@
     template: src="{{role_dir}}/templates/grcat.pgsql" dest="~/grcat.pgsql"
     become: yes
     become_user: postgres
+    ignore_errors: true
     when: docker_test is not defined
     tags: psql
 
@@ -24,5 +25,6 @@
     template: src="{{role_dir}}/templates/psqlrc.j2" dest="~/.psqlrc"
     become: yes
     become_user: postgres
+    ignore_errors: true
     when: docker_test is not defined
     tags: psql
